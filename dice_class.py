@@ -2,7 +2,9 @@ import random
 
 class Dice: 
     """"""
-    def __init__(self, n>=2) #Definere sider 
+    def __init__(self, n>=2): #Definere sider 
+        """"""
+
     def roll(self,):
         """"""
         random.randint(1, self.sides)
