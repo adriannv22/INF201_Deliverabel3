@@ -47,3 +47,4 @@ class Character:
         """Reduce character's HP by a specified amount"""
         self._hp -= amount
         self._hp = max(self._hp, 0)  # Ensure HP does not go below 0
+
