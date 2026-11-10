@@ -2,16 +2,18 @@ import random
 
 class Dice: 
     """"""
-    def __init__(self, n>=2): #Definere sider 
+    def __init__(self, sides: int): #Definere sider 
         """"""
+        if sides >= 2:
+            self.sides = sides
 
-    def roll(self,):
+    def roll(self):
         """"""
         random.randint(1, self.sides)
 
     def __repr__(self) -> str:
         """"""
-        return
+        return Dice(sides = 6)
      
     def __call__(self):
         """"""
