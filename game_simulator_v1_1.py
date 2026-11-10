@@ -48,3 +48,44 @@ class Character:
         self._hp -= amount
         self._hp = max(self._hp, 0)  # Ensure HP does not go below 0
 
+
+class Worrior(Character):
+    """"""
+    def __init__(self, name, hp_max = 100, damage = 10, armor: int = 5) -> None:
+        """"""
+        super().__init__(name, hp_max, damage)
+        self.armor=armor
+
+    @property
+    def take_damage(self, amount: int) -> None:
+            """Reduce character's HP by a specified amount"""
+            self._hp -= amount
+            self._hp = max(self._hp, 0)  # Ensure HP does not go below 0
+
+class Mage(Character):
+    """"""
+    def __init__(self, name, hp_max = 100, damage = 10, mana: int = 30, mana_max: int = 30) -> None:
+        """"""
+        super().__init__(name, hp_max, damage)
+        self.mana = mana
+        self.mana_max = mana_max
+
+    def attack(self, target) -> None:
+            """Attack and deal damage to target character"""
+            if self.mana >= 10:
+                target.take_damage(self.damage)
+            else:
+                target.take_damage(self.damage)
+
+wn = Worrior("kn")
+mn = Mage("mn")
+
+print(mn._hp)
+
+wn.attack(mn)
+
+print(mn._hp)
+
+mn.attack(wn)
+
+print(wn._hp)
