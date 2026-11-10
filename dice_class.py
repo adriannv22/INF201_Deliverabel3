@@ -13,7 +13,7 @@ class Dice:
 
     def __repr__(self) -> str:
         """"""
-        return Dice(sides = 6)
+        return Dice(sides)
      
     def __call__(self):
         """"""
