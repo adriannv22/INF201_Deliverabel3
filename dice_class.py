@@ -1,5 +1,6 @@
 import random 
 
+
 class Dice: 
     """A dice which makes the damage dealt by the characters variable"""
 
