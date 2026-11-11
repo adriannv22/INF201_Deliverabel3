@@ -23,5 +23,3 @@ class Dice:
 #mange sider terningen vi bruker i spillet har. 
 #Oppgave 5 skrives i jupyter notebook. 
 
-d20 = Dice(sides = 20)
-print(d20.roll())
