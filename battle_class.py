@@ -21,8 +21,9 @@ class Battle:
         the enemy attacks the hero
         """
         #Hero attacks enemy
-        self.hero.attack(self.enemy)
+        attack_str = self.hero.attack(self.enemy)
         print(f" {self.enemy.name} has been attacked and has now HP: {max(0, self.enemy.hp)}")
+        print(attack_str)
         # max(0, self.enemy.hp) makes sure that the HP can not be displayed as negative
 
         #If enemy is still alive, enemy attacks hero 

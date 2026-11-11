@@ -24,12 +24,19 @@ class Character:
         self.damage = damage
         self.weapon = weapon
 
-    def attack(self, target) -> None:
+    def attack(self, target) -> str:
         """Attack and deal damage to target character based on if the character have a weapon or not"""
         if self.weapon != None:
-            target.take_damage(self.weapon.roll_damage())
+            damage_amount = self.weapon.roll_damage()
+            target.take_damage(damage_amount)
+            return f"{self.name} attacks for {damage_amount} damage using {self.weapon.name}"
         else:   
             target.take_damage(self.damage)
+            return f"{self.name} attacks for {self.damage} damage without a weapon"
+
+    def heal(self, heal_amount: int = 10) -> None:
+        """"""
+        self._hp += heal_amount
 
     def introduce(self) -> None:
         """Creates string that introduces character"""
@@ -101,13 +108,16 @@ class Mage(Character):
         self.mana = min(mana, mana_max) #make sure the mana don't go passt the maks
         self.mana_max = mana_max
 
-    def attack(self, target) -> None:
+    def attack(self, target) -> str:
         """Mage uses manacto do ekstra damage, or a weak atack if the mage is emty of mana"""
         #Determen what the damage shoud be if the mage have a weapon or not
         if self.weapon != None:
-             damage = self.weapon.roll_damage()
+            #damage_amount = self.weapon.roll_damage()
+            damage = self.weapon.roll_damage()
+            return f"{self.name} attacks for {self.damage} damage using {self.weapon.name}"
         else:
              damage=self.damage
+             return f"{self.name} attacks for {self.damage} damage without using weapon"
 
         #Make the mage do dobbel damage if it has mana
         if self.mana >= 10:
