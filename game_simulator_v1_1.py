@@ -81,17 +81,14 @@ class Mage(Character):
 
     def attack(self, target) -> None:
         """Mage bruker mana for å gjøre ekstra skade, eller svakere angrep hvis tom for mana"""
+        if self.weapon != None:
+             damage = self.weapon.roll_damage()
+        else:
+             damage=self.damage
+        
         if self.mana >= 10:
             self.mana -= 10
-            target.take_damage(self.damage*2)
+            target.take_damage(damage*2)
         else:
             self.mana += 5
-            target.take_damage(self.damage)
-
-wn=Warrior('kn', weapon = Weapon('sord', Dice(6)))
-
-wm=Warrior('km')
-
-wn.attack(wm)
-
-print(wm)
+            target.take_damage(damage)
