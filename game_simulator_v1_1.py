@@ -37,7 +37,7 @@ class Character:
 
     def __repr__(self) -> str:
         """Representation of character object"""
-        return f"<Character name={self.name} hp={self.hp} damage={self.damage}>)"
+        return f"<Character name={self.name} hp={self.hp} damage={self.damage} weamop={self.weapon}>)"
 
     def __str__(self) -> str:
         """String representation of character object"""
@@ -98,7 +98,7 @@ class Mage(Character):
         """
         # Adds the init function parts from the character class
         super().__init__(name, hp_max, damage, weapon)
-        self.mana = mana
+        self.mana = min(mana, mana_max) #make sure the mana don't go passt the maks
         self.mana_max = mana_max
 
     def attack(self, target) -> None:
