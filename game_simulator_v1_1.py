@@ -111,18 +111,22 @@ class Mage(Character):
     def attack(self, target) -> str:
         """Mage uses manacto do ekstra damage, or a weak atack if the mage is emty of mana"""
         #Determen what the damage shoud be if the mage have a weapon or not
-        if self.weapon != None:
-            #damage_amount = self.weapon.roll_damage()
-            damage = self.weapon.roll_damage()
-            return f"{self.name} attacks for {self.damage} damage using {self.weapon.name}"
-        else:
-             damage=self.damage
-             return f"{self.name} attacks for {self.damage} damage without using weapon"
-
+      
         #Make the mage do dobbel damage if it has mana
         if self.mana >= 10:
             self.mana -= 10 #Drops mana by 10
-            target.take_damage(damage*2) 
+            target.take_damage(self.damage*2) 
+            return f"{self.name} attacks for {self.damage*2} damage using magic"
         else:
-            self.mana += 5 #Gain 5 mana 
-            target.take_damage(damage)
+            self.mana += 5 #Gain 5 mana
+            if self.weapon != None:
+                #damage_amount = self.weapon.roll_damage()
+                damage = self.weapon.roll_damage()
+                target.take_damage(damage)
+                return f"{self.name} attacks for {self.damage} damage using {self.weapon.name}"
+            else:
+                damage=self.damage
+                target.take_damage(damage)
+                return f"{self.name} attacks for {self.damage} damage without using weapon"
+        
+             
