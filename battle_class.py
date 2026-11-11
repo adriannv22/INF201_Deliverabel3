@@ -8,9 +8,12 @@ class Battle:
         self.hero = hero
         self.enemy = enemy
 
-    def play_around(self):
+    def play_around(self, hero, enemy):
         """"""
-        return 
+        enemy.take_damage(self.damage)
+        if self._hp > 0:
+            hero.take_damage(self.damage)
+
 
     def simulate_battle(self):
         """"""
