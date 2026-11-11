@@ -8,10 +8,6 @@ class Battle:
         self.hero = hero
         self.enemy = enemy
 
-    def beginning(self):
-        """"""
-        round_number = 1
-
     def play_around(self):
         """"""
         #Hero attacks enemy
@@ -22,7 +18,10 @@ class Battle:
 
     def simulate_battle(self):
         """"""
+        round_number = 1
+
         while self.hero.is_alive() and self.enemy.is_alive():
+            print()
             self.play_round()
             round_number += 1
 
