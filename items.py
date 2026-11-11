@@ -3,12 +3,12 @@ from dice_class import Dice
 class Weapon:
     """"""
 
-    def __init__(self, name: str, damage_dice: Dice): #damage_dice er et objekt som f.eks d20 som du lager
+    def __init__(self, name: str, damage_dice: Dice) -> None: #damage_dice er et objekt som f.eks d20 som du lager
         """"""
-        self.name = name
+        self.name: str = name
         self.damage_dice = damage_dice
 
-    def roll_damage(self):
+    def roll_damage(self) -> int:
         """"""
         return self.damage_dice.roll()
 
