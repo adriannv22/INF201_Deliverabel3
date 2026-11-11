@@ -71,6 +71,7 @@ class Warrior(Character):
             weaopn (Weapon): The weaopn the character has (default = None)
             armor (int): The amount of armor a worior has (default = 5)
         """
+        # Adds the init function parts from the character class
         super().__init__(name, hp_max, damage, weapon)
         self.armor=armor
 
@@ -95,20 +96,23 @@ class Mage(Character):
             mana (int): Mana that a wissord has (default = 30)
             max_mana (int): Max mana have a wissort can have (defult = 100)
         """
+        # Adds the init function parts from the character class
         super().__init__(name, hp_max, damage, weapon)
         self.mana = mana
         self.mana_max = mana_max
 
     def attack(self, target) -> None:
         """Mage uses manacto do ekstra damage, or a weak atack if the mage is emty of mana"""
+        #Determen what the damage shoud be if the mage have a weapon or not
         if self.weapon != None:
              damage = self.weapon.roll_damage()
         else:
              damage=self.damage
-        
+
+        #Make the mage do dobbel damage if it has mana
         if self.mana >= 10:
-            self.mana -= 10
-            target.take_damage(damage*2)
+            self.mana -= 10 #Drops mana by 10
+            target.take_damage(damage*2) 
         else:
-            self.mana += 5
+            self.mana += 5 #Gain 5 mana 
             target.take_damage(damage)
