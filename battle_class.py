@@ -8,13 +8,16 @@ class Battle:
         self.hero = hero
         self.enemy = enemy
 
-    def play_around(self, hero, enemy):
+    def play_around(self):
         """"""
-        enemy.take_damage(self.damage)
-        if self._hp > 0:
+        #Hero attacks enemy
+        self.hero.attack(self.enemy)
+        #If enemy is still alive, enemy attacks hero 
+        if self.enemy.is_alive():
+            self.enemy.attack(self.hero)
             hero.take_damage(self.damage)
 
 
     def simulate_battle(self):
         """"""
-        while :
+        while : 
