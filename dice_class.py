@@ -28,6 +28,3 @@ class Dice:
 
 # When we call the Dice class, we can decide how 
 # many sides the dice in the RPG has.  
-
-d20 = Dice(sides = 20)
-print(d20.roll())
