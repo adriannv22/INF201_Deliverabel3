@@ -1,4 +1,4 @@
-from game_simulator_v1_1 import Character, Warrior, Mage
+from game_simulator_v1 import Character, Warrior, Mage
 
 
 class Battle:
