@@ -35,7 +35,7 @@ class Character:
             return f"{self.name} attacks for {self.damage} damage without a weapon"
 
     def heal(self, heal_amount: int = 10) -> None:
-        """"""
+        """Heal means that the character increase their own HP"""
         self._hp += heal_amount
 
     def introduce(self) -> None:
@@ -44,7 +44,7 @@ class Character:
 
     def __repr__(self) -> str:
         """Representation of character object"""
-        return f"<Character name={self.name} hp={self.hp} damage={self.damage} weamop={self.weapon}>)"
+        return f"<Character name={self.name} hp={self.hp} damage={self.damage} weapon={self.weapon}>)"
 
     def __str__(self) -> str:
         """String representation of character object"""
@@ -120,7 +120,6 @@ class Mage(Character):
         else:
             self.mana += 5 #Gain 5 mana
             if self.weapon != None:
-                #damage_amount = self.weapon.roll_damage()
                 damage = self.weapon.roll_damage()
                 target.take_damage(damage)
                 return f"{self.name} attacks for {self.damage} damage using {self.weapon.name}"

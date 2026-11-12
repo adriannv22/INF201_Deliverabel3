@@ -23,14 +23,14 @@ class Battle:
         #Hero attacks enemy
         attack_str = self.hero.attack(self.enemy)
         print(attack_str)
-        print(f" {self.enemy.name} has been attacked and has now HP: {max(0, self.enemy.hp)}")
+        print(f"Now {self.enemy.name} has {max(0, self.enemy.hp)} HP")
         # max(0, self.enemy.hp) makes sure that the HP can not be displayed as negative
 
         #If enemy is still alive, enemy attacks hero 
         if self.enemy.is_alive():
             attack_str = self.enemy.attack(self.hero)
             print(attack_str)
-            print(f" {self.hero.name} has been attacked and has now HP: {max(0, self.hero.hp)}")
+            print(f"Now {self.hero.name} has {max(0, self.hero.hp)} HP")
 
     def simulate_battle(self) -> None:
         """Simulate the battle with one or more rounds until one character dies."""
